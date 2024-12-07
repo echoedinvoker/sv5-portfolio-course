@@ -1,0 +1,65 @@
+<script lang="ts">
+  interface ExperienceTableProps {
+    workExperience: DevExperience[];
+  }
+
+  let { workExperience }: ExperienceTableProps = $props();
+</script>
+
+<div class="work-experience default-margin mt-l">
+  <ul class="work-experience-list">
+    {#each workExperience as job}
+      <li class="work-experience-item">
+        <article>
+          <h3 class="semi-bold mb-xs">{job.jobTitle}</h3>
+          <div class="company-and-date">
+            <p>{job.company}</p>
+            <p class="dark-grey">
+              {job.startDate}
+              {#if job.endDate}
+                / {job.endDate}
+              {:else}
+                / present
+              {/if}
+            </p>
+          </div>
+        </article>
+      </li>
+    {/each}
+  </ul>
+  <h2 class="headline">Past work <br /> Experience</h2>
+</div>
+
+<style>
+  .work-experience {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .work-experience-list {
+    width: 50%;
+  }
+
+  .headline {
+    text-align: right;
+  }
+
+  .work-experience-item {
+    margin-bottom: 1px solid #f0eded;
+    padding-bottom: 12px;
+  }
+
+  .work-experience-item:not(:first-of-type) {
+    padding-top: 16px;
+  }
+
+  .work-experience-item p {
+    margin-bottom: 0;
+  }
+
+  .company-and-date {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
