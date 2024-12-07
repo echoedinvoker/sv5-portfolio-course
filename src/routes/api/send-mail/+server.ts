@@ -3,6 +3,7 @@ import type { RequestHandler } from "./$types";
 import { SENDGRID_API_KEY } from "$env/static/private";
 import sgMail from "@sendgrid/mail";
 
+console.log(SENDGRID_API_KEY)
 sgMail.setApiKey(SENDGRID_API_KEY);
 
 export const POST: RequestHandler = async ({ request }) => {
